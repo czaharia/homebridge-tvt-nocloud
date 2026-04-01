@@ -1,0 +1,46 @@
+{
+  "pluginAlias": "TVTLocalPlatform",
+  "pluginType": "platform",
+  "singular": false,
+  "headerDisplay": "Homebridge plugin for TVT DVR/NVR. Auto-discovers all channels and exposes them as cameras with optional motion detection. Requires FFmpeg on your Homebridge host.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name":     { "title": "Platform Name",            "type": "string",  "default": "TVT DVR", "required": true },
+      "host":     { "title": "DVR IP Address",           "type": "string",  "required": true },
+      "httpPort": { "title": "HTTP Port",                "type": "integer", "default": 80   },
+      "rtspPort": { "title": "RTSP Port",                "type": "integer", "default": 554  },
+      "username": { "title": "Username",                 "type": "string",  "default": "admin", "required": true },
+      "password": { "title": "Password",                 "type": "string",  "required": true },
+      "channelCount":          { "title": "Channel Count (override auto-detect)", "type": "integer", "minimum": 1, "maximum": 64 },
+      "motionDetection":       { "title": "Enable Motion Detection",              "type": "boolean", "default": true  },
+      "motionHttpPort":        { "title": "Motion Push Listener Port",            "type": "integer", "default": 10888 },
+      "motionPollingInterval": { "title": "Motion Polling Interval s (0=off)",    "type": "integer", "default": 0     },
+      "motionTimeout":         { "title": "Motion Reset Timeout s",               "type": "integer", "default": 30    },
+      "useSubStream":          { "title": "Use Sub-Stream for HomeKit",           "type": "boolean", "default": false },
+      "videoConfig": {
+        "type": "object",
+        "properties": {
+          "maxWidth":       { "title": "Max Width",          "type": "integer", "default": 1920  },
+          "maxHeight":      { "title": "Max Height",         "type": "integer", "default": 1080  },
+          "maxFPS":         { "title": "Max FPS",            "type": "integer", "default": 15    },
+          "maxBitrate":     { "title": "Max Bitrate (kbps)", "type": "integer", "default": 1500  },
+          "packetSize":     { "title": "RTP Packet Size",    "type": "integer", "default": 1316  },
+          "encoderOptions": { "title": "Extra FFmpeg Options","type": "string",  "placeholder": "-tune zerolatency" },
+          "forceMax":       { "title": "Force Max Resolution","type": "boolean", "default": false }
+        }
+      },
+      "cameras": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "channelId":       { "title": "Channel ID",       "type": "integer", "required": true },
+            "name":            { "title": "Camera Name",      "type": "string"  },
+            "motionDetection": { "title": "Motion Detection", "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+dist/
+node_modules/
+*.log
+npm-debug.log*
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+config.json
+persist/
+accessories/
