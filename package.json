@@ -1,6 +1,6 @@
 {
   "name": "homebridge-tvt-nocloud",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Homebridge plugin for TVT DVR/NVR — cameras + motion detection in Apple HomeKit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,7 @@
   "keywords": ["homebridge-plugin","tvt","dvr","nvr","camera","homekit","cctv","motion"],
   "license": "MIT",
   "homepage": "https://github.com/czaharia/homebridge-tvt-nocloud",
-  "engines": { "node": ">=18.0.0", "homebridge": ">=1.6.0" },
+  "engines": { "node": ">=20", "homebridge": "^1.6.0 || ^2.0.0-beta.0"},
   "dependencies": { "xml2js": "^0.6.2" },
   "devDependencies": {
     "@types/node": "^20.0.0",
